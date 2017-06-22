@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Crud</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top"">
+  
+    <div class="container">
+  
+      <div class="navbar-header">
+          <%= link_to "Home", root_path, class: "navbar-brand"%>
+               <ul class="nav navbar-nav">
+              <li>
+               <%= link_to "People", users_path(:user_id) %>
+              </li>
+            </ul>
+          <%if user_signed_in?%> 
+               <ul class="nav navbar-nav">
+              <li>
+               <%= link_to "Profile", current_user%>
+              </li>
+            </ul>
+          <%end%>
+
+      </div>
+
+  
+      <ul class="nav navbar-nav navbar-right">
+        <%if !user_signed_in? %>
+         <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <%end%>
+        <% if user_signed_in? %>
+          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+        <%else%>
+          <li><%= link_to "Log In", new_user_session_path %></li>
+        <% end %>
+        <% if user_signed_in? %>
+          <li><%= link_to "New Post", new_post_path %></li>
+        <%end%>
+
+      </ul>
+
+    </div>
+  
+  </nav>
+
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
+		
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>

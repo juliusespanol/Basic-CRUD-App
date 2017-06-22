@@ -1,0 +1,29 @@
+<h1></h1>
+
+<% @posts.each do |post|%>
+	<center>
+		<div class="row">
+			
+			<div class="container jumbotron col-md-6 col-md-offset-3">
+				<div class="container col-md-3">
+					<h4><b><%=post.user.email%></b></h4>
+				</div>
+				<a href="/posts/<%= post.id%>">
+					<%= image_tag post.post_img.url(:post_index),class: "post"  %>
+				</a>	
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-md-5">
+						<b><%=post.user.email%></b>
+					</div>
+					<div class="col-xs-6 col-md-7">
+						<%= post.caption%>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</center>
+<%end%>
+
+

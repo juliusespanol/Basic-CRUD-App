@@ -1,0 +1,9 @@
+<p><b><%= remark.user.email %>:</b> <%= remark.comment %></p>
+
+
+<%if user_signed_in?%>
+
+<%= link_to "Edit", edit_post_remark_path(remark.post, remark) %>
+<%= link_to "Delete", post_remark_path(remark.post, remark), method: :delete,
+	data: {confirm: "Delete this comment?"}%>
+<%end%>

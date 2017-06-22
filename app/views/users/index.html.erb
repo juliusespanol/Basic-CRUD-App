@@ -1,0 +1,8 @@
+
+<% @users.each do |user| %>
+	<div class ="row">
+		<div class="col-md-3">
+			<h1><%= link_to user.email, user %></h1>
+		</div>
+	</div>
+<% end %>

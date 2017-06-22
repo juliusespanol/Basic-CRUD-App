@@ -1,0 +1,7 @@
+<h1>Edit Comment</h1>
+
+<%= simple_form_for([@post, @remark]) do |p|%>
+	<%= p.input :comment %>
+	<%= p.button :submit %>
+<%end%> 
+
